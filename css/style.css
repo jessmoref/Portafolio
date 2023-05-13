@@ -62,7 +62,7 @@ body {
 }
 
 .mensaje {
-  background-image: url("imgs/muneco.png");
+  background-image: url("/imgs/muneco.png");
   background-repeat: no-repeat;
   background-position: center;
 }
