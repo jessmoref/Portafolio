@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="en">
 
 <head>
     <meta charset="UTF-8">
@@ -9,56 +9,102 @@
     <link rel="shortcut icon" href="imgs/Logo1.png" type="image/x-icon">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
     <link
-        href="https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@100;200;300;400;500;600;700;800;900&family=Roboto:wght@300&family=Yusei+Magic&display=swap"
+        href="https://fonts.googleapis.com/css2?family=Bungee&family=Indie+Flower&family=Press+Start+2P&family=Roboto+Slab:wght@100;200;300;400;500;600;700;800;900&family=Roboto:wght@300&family=Yusei+Magic&display=swap"
         rel="stylesheet">
     <link href="css/style.css" rel="stylesheet" />
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
 </head>
 
 <body>
+    <!--#----------------------------------Inicio Header: Logo y titulo----------------------------------#-->
+    <header class="cabecera">
 
-    <header>
-        <div class="cabecera">
-            <h1><img class="logo" src="imgs/Logo1.png" alt="Logo de Alura Latam"></h1>
-            <h1 class="titulo">ENCRIPTADOR ALURA</h1>
+        <div class="recuadro1">
+            <div class="logo">
+                <h1><img src="./imgs/Logo1.png" alt="Logo de Alura Latam"></h1>
+            </div>
+        </div>
+        <div class="titulo">
+            <h1 class="titulo1">ENCRIPTADOR ALURA</h1>
         </div>
     </header>
-    <main>
-        <div class="textoinicio">
-            <h1>Ingresa el texto que deseas encriptar o desencriptar</h1>
-        </div>
-        <section class="seccionUno">
-            <div>
-                <textarea id="uno_result" class="cuadrotexto text-area"
-                    placeholder="Ingrese el texto aqui..."></textarea>
+    <!--#----------------------------------Fin Header----------------------------------#-->
+    <!--#----------------------------------Inicio Main----------------------------------#-->
+    <div class="textoinicio">
+        <h1>Ingresa el texto que deseas encriptar o desencriptar:</h1>
+    </div>
+    <!--#----------------------------------Inicio Seccion Uno----------------------------------#-->
+    <section class="seccionUno" id="contenido">
+        <div class="screen">
+            <div class="player">
+                <h2 class="player1">Player 1</h2>
+                <div class="love"></div>
+                <div class="love"></div>
+                <div class="love"></div>
+                <h2 class="player1-a">100-1</h2>
             </div>
-            <div>
-                <textarea id="textArea" class="cuadrotexto mensaje text-area" readonly></textarea>
-            </div>
-        </section>
-
-        <section class="seccionDos">
-            <div>
-                <h6 class="informacion">Solo letras minúsculas y sin acentos</h6>
+            <div class="screen-cont">
+                <textarea name="texto" id="texto" class="texto texto2 cuadroTexto text-area"
+                    placeholder="Ingrese el texto aqui..." autofocus></textarea>
+                <div class=" informacion">
+                    <h2><i class="material-icons">error</i>Solo letras minúsculas y sin acentos. </h2>
+                </div>
             </div>
             <div class="botones">
-                <button class="btn-encriptar" onclick="btnEncriptar()">Encriptar</button>
-                <button class="btn-desencriptar" onclick="btnDesencriptar()">Desencriptar</button>
-                <button class="btn-limpiar" onclick="limpiarTexto()">Limpiar</button>
-                <button class="btn-copiar" onclick="copiarTexto()">Copiar</button>
+                <button class="button-overlay btn-encriptar" type="button" onclick="encriptar()">Encriptar</button>
+                <div class="button-back"></div>
+                <button class="button-overlay btn-desencriptar" onclick="desencriptar()">Desencriptar</button>
+                <div class="button-back2"></div>
             </div>
-            <div>
-                <span id="accionResult"></span>
+        </div>
+        <div class="screen">
+            <div class="player">
+                <h2 class="player1">Player 2</h2>
+                <div class="love"></div>
+                <div class="love"></div>
+                <div class="love"></div>
+                <h2 class="player1-a">100-2</h2>
             </div>
-        </section>
+            <div class="encriptado">
+                <div class="screen-cont">
+                    <div>
+                        <textarea id="textArea" class="cuadroTexto mensaje text-area" readonly></textarea>
+                    </div>
+                </div>
+                <div class="muneco">
+                    <img src="./imgs/muneco.png" id="muñeco" alt="muñeco_alura">
+                </div>
+                <div class="contendor-parrafo mensaje-encriptado" id="mensaje-encriptado">
+                    <div class="lineas">
+                        <h2 id="titulo-mensaje">Ningun mensaje <br> fue encontrado</h2>
+                    </div>
+                    <p id="parrafo">Ingresa el texto que deseas encriptar o desencriptar.</p>
+                </div>
+                <div class="botones">
+                    <button class="button-overlay btn-limpiar" onclick="limpiarTexto()">Limpiar</button>
+                    <div class="button-back"></div>
+                    <button class="button-overlay btn-copiar" onclick="copiarTexto()">Copiar</button>
+                    <div class="button-back2"></div>
+                </div>
+            </div>
+        </div>
+    </section>
 
-    </main>
+    <!--#----------------------------------Fin Main----------------------------------#-->
 
+    <!--#----------------------------------Inicio Footer: creado por----------------------------------#-->
     <footer>
         <p class="copyright">&copy Copyright Jessica Fuentes M. - 2023</p>
     </footer>
+    <!--#----------------------------------Fin Footer----------------------------------#-->
 
-    <script src="js/logicaEncrip.js"></script>
+    <!--#----------------------------------Javascript----------------------------------#-->
+    <script src="./js/logicaEncrip.js"></script>
+    <!--#----------------------------------------------------------------------#-->
 
 </body>
 

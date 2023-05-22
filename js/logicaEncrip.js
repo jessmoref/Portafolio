@@ -1,86 +1,81 @@
-const textArea = document.querySelector(".text-area");
-const mensaje = document.querySelector(".mensaje");
-const accionResult = document.getElementById('accionResult');
+function encriptar() {
+    let texto = document.getElementById("texto").value;
+    let tituloMensaje = document.getElementById("titulo-mensaje");
+    let parrafo = document.getElementById("parrafo");
+    let muñeco = document.getElementById("muñeco");
 
-/*
-La letra "e" es convertida para "enter"
-La letra "i" es convertida para "imes"
-La letra "a" es convertida para "ai"
-La letra "o" es convertida para "ober"
-La letra "u" es convertida para "ufat"
-*/
-
-function btnEncriptar(){
-    const textoEncriptado = encriptar(textArea.value);
-    mensaje.value = textoEncriptado;
-    textArea.value = "";
-    mensaje.style. backgroundImage = "none";
-}
-
-function btnDesencriptar(){
-    const textoDesencriptado = desencriptar(textArea.value);
-    mensaje.value = textoDesencriptado;
-    textArea.value = "";
-}
-
-function encriptar(stringEncriptar){
-
-    document.getElementById("accionResult").innerHTML = "";
-    let matrizCodigo = [["e","enter"],["i","imes"],["a","ai"],["o","ober"],["u","ufat"]];
-    stringEncriptar = stringEncriptar.toLowerCase();
-
-    for(let i = 0; i < matrizCodigo.length; i++){
-        if(stringEncriptar.includes(matrizCodigo[i][0])){
-            stringEncriptar = stringEncriptar.replaceAll(matrizCodigo[i][0], matrizCodigo[i][1]);
-        }
+    let textoCifrado = texto
+    .replace(/e/gi, "enter")
+    .replace(/i/gi, "imes")
+    .replace(/a/gi, "ai")
+    .replace(/o/gi, "ober")
+    .replace(/u/gi, "ufat");
+    
+if (texto.length != 0) {
+    document.getElementById("texto").value = textoCifrado;
+    tituloMensaje.textContent = "Encriptado con éxito";
+    parrafo.textContent = "";
+    muñeco.src = "../imgs/muneco.png";
+} else {
+    muñeco.src = "../imgs/muneco.png";
+    tituloMensaje.textContent;
+    parrafo.textContent = "Ingresa el texto que deseas encriptar";
+    swal("Algo salio mal!", "Texto invalido!", "warning");
     }
-    accionResult.innerHTML = 'Encriptado!';
-        if(stringEncriptar.length == ''){
-            accionResult.innerHTML = 'Ningun mensaje fue encontrado para Encriptar!';
-            stringEncriptar.focus();
-            return stringEncriptar;
-        } 
-        return stringEncriptar;
-
 }
 
-function desencriptar(stringDesencriptar){
+function desencriptar() {
+    let texto = document.getElementById("texto").value;
+    let tituloMensaje = document.getElementById("titulo-mensaje");
+    let parrafo = document.getElementById("parrafo");
+    let muñeco = document.getElementById("muñeco");
 
-    document.getElementById("accionResult").innerHTML = "";
-    let matrizCodigo = [["e","enter"],["i","imes"],["a","ai"],["o","ober"],["u","ufat"]];
-    stringDesencriptar = stringDesencriptar.toLowerCase();
+    let textoCifrado = texto
+    .replace(/enter/gi, "e")
+    .replace(/imes/gi, "i")
+    .replace(/ai/gi, "a")
+    .replace(/ober/gi, "o")
+    .replace(/ufat/gi, "u");
 
-    for(let i = 0; i < matrizCodigo.length; i++){
-        if(stringDesencriptar.includes(matrizCodigo[i][1])){
-            stringDesencriptar = stringDesencriptar.replaceAll(matrizCodigo[i][1], matrizCodigo[i][0]);
-
-        }
+if (texto.length != 0) {
+        document.getElementById("texto").value = textoCifrado;
+        tituloMensaje.textContent = "Desencriptado con éxito";
+        parrafo.textContent = "";
+        muñeco.src = "/imgs/muneco.png";
+    } else {
+        muñeco.src = "/imgs/muneco.png";
+        tituloMensaje.textContent;
+        parrafo.textContent = "Ingresa el texto que deseas desencriptar";
+        swal("Algo salio mal!", "Texto invalido!", "warning");
     }
-    accionResult.innerHTML = 'Desencriptado!';
-    if(stringDesencriptar.length == ''){
-        accionResult.innerHTML = 'Ningun mensaje fue encontrado para Desencriptar!';
-        stringDesencriptar.focus();
-        return stringDesencriptar;
-    }
-    return stringDesencriptar;
+
 }
 
-function copiarTexto(){
-    document.getElementById("accionResult").innerHTML = "";
-    let contenido = document.getElementById('textArea');
-        contenido.select();
-        contenido.setSelectionRange(0,99999);
-        document.execCommand('copy');
-        if (contenido.value == '') {
-            accionResult.innerHTML = 'Ningun mensaje fue copiado!';
-        } else {
-            accionResult.innerHTML = 'copiado!';
-        }
-}
-
+/*Funcion para limpiar la caja de texto*/
 function limpiarTexto() {
-    document.getElementById("textArea").value = "";
+    document.getElementById("texto").value = "";
     window.location.reload();
 }
 
+/*Funcion para copiar*/
+function copiarTexto(){
+    let texto = document.getElementById("texto").value;
+    const textArea = document.querySelector(".texto2");
+    let tituloMensaje = document.getElementById("titulo-mensaje");
+    let parrafo = document.getElementById("parrafo");
+    let muñeco = document.getElementById("muñeco");
+    let contenido = document.getElementById('texto');
 
+    contenido.select();
+    contenido.setSelectionRange(0,99999);
+
+    if (contenido.value == '') {
+        tituloMensaje.textContent;
+        parrafo.textContent = "Ingresa que copiar.";
+        swal("Algo salio mal!", "Texto invalido!", "warning");
+    } else{
+                document.execCommand('copy');
+                tituloMensaje.textContent = "C O P I A D O!";
+                parrafo.textContent = "";
+    }
+}
