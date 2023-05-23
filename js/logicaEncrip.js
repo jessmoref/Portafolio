@@ -15,9 +15,7 @@ if (texto.length != 0) {
     document.getElementById("texto").value = textoCifrado;
     tituloMensaje.textContent = "Encriptado con éxito";
     parrafo.textContent = "";
-    muñeco.src = "./imgs/muneco.png";
 } else {
-    muñeco.src = "./imgs/muneco.png";
     tituloMensaje.textContent;
     parrafo.textContent = "Ingresa el texto que deseas encriptar";
     swal("Algo salio mal!", "Texto invalido!", "warning");
@@ -41,9 +39,7 @@ if (texto.length != 0) {
         document.getElementById("texto").value = textoCifrado;
         tituloMensaje.textContent = "Desencriptado con éxito";
         parrafo.textContent = "";
-        muñeco.src = "./imgs/muneco.png";
     } else {
-        muñeco.src = "./imgs/muneco.png";
         tituloMensaje.textContent;
         parrafo.textContent = "Ingresa el texto que deseas desencriptar";
         swal("Algo salio mal!", "Texto invalido!", "warning");
